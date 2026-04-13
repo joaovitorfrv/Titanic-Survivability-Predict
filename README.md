@@ -155,14 +155,6 @@ O notebook pode ser aberto diretamente no Google Colab via importação de URL (
 
 ---
 
-## 🎬 Vídeo de Apresentação
-
-Assista à demonstração completa do projeto no link abaixo:
-
-> 📹 **[Insira o link do vídeo aqui]**
-
----
-
 ## 📄 Licença
 
 Este projeto foi desenvolvido para fins acadêmicos como MVP do curso de **Engenharia de Sistemas de Software Inteligentes**.
