@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Titanic Predictor — Calculadora de Sobrevivência</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-eyebrow">RMS Titanic &middot; 10 de Abril de 1912</p>
+      <h1 class="header-title">
+        <span class="header-anchor" aria-hidden="true">&#9875;</span>
+        Titanic Predictor
+      </h1>
+      <p class="header-subtitle">Calcule a probabilidade de sobrevivência de um passageiro</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="card" aria-label="Formulário de predição">
+        <h2 class="card-heading">
+          <span aria-hidden="true">&#128674;</span> Perfil do Passageiro
+        </h2>
+        <p class="card-subheading">
+          Preencha todos os campos com as informações do passageiro para obter a predição.
+        </p>
+
+        <form id="predict-form" novalidate>
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label class="form-label" for="pclass">Classe da Cabine</label>
+              <select class="form-control" id="pclass" required>
+                <option value="" disabled selected>Selecione&hellip;</option>
+                <option value="1">1&ordf; Classe &mdash; Primeira</option>
+                <option value="2">2&ordf; Classe &mdash; Segunda</option>
+                <option value="3">3&ordf; Classe &mdash; Terceira</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sex">Sexo</label>
+              <select class="form-control" id="sex" required>
+                <option value="" disabled selected>Selecione&hellip;</option>
+                <option value="1">Masculino</option>
+                <option value="0">Feminino</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="age">
+                Idade
+                <span class="label-hint">(0&ndash;120 anos)</span>
+              </label>
+              <input class="form-control" type="number" id="age"
+                     min="0" max="120" step="any"
+                     placeholder="Ex: 22" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="fare">
+                Tarifa Paga
+                <span class="label-hint">(&pound; 0&ndash;550)</span>
+              </label>
+              <input class="form-control" type="number" id="fare"
+                     min="0" max="550" step="any"
+                     placeholder="Ex: 7.25" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="sibsp">
+                Irm&atilde;os / C&ocirc;njuges a bordo
+              </label>
+              <input class="form-control" type="number" id="sibsp"
+                     min="0" max="10" step="1"
+                     placeholder="Ex: 0" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="parch">
+                Pais / Filhos a bordo
+              </label>
+              <input class="form-control" type="number" id="parch"
+                     min="0" max="10" step="1"
+                     placeholder="Ex: 0" required />
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="embarked">Porto de Embarque</label>
+              <select class="form-control" id="embarked" required>
+                <option value="" disabled selected>Selecione o porto&hellip;</option>
+                <option value="S">Southampton, Inglaterra (S)</option>
+                <option value="Q">Queenstown, Irlanda (Q)</option>
+                <option value="C">Cherbourg, Fran&ccedil;a (C)</option>
+              </select>
+            </div>
+
+          </div><!-- /.form-grid -->
+
+          <button type="submit" id="submit-btn" class="btn-predict">
+            <span class="btn-text">Prever Sobreviv&ecirc;ncia</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+      </section>
+
+      <!-- Área de feedback: carregamento / resultado / erro -->
+      <div id="feedback"
+           class="feedback hidden"
+           role="status"
+           aria-live="polite"
+           aria-atomic="true">
+        <div id="feedback-icon" class="feedback-icon" aria-hidden="true"></div>
+        <div class="feedback-body">
+          <p id="feedback-title" class="feedback-title"></p>
+          <p id="feedback-message" class="feedback-message"></p>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+  </main>
+
+  <footer class="site-footer">
+    <p>RMS Titanic &mdash; Southampton, 10 de Abril de 1912 &mdash; Titanic Predictor MVP</p>
+  </footer>
+
+  <script defer src="js/app.js"></script>
+</body>
+</html>
