@@ -110,10 +110,7 @@ def predict(body: PredictSchema) -> Response:
     message = "Sobrevivência" if prediction == 1 else "Óbito"
     logger.info("Predição: %d (%s)", prediction, message)
 
-    return (
-        jsonify({"status": "success", "prediction": prediction, "message": message}),
-        200,
-    )
+    return jsonify({"status": "success", "prediction": prediction, "message": message}),200
 
 
 # ---------------------------------------------------------------------------
